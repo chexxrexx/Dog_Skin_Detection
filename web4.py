@@ -11,10 +11,8 @@ labels = {0: "Bacterial Dermatitis", 1: "Fungal Infection", 2: "Healthy", 3: "Hy
 
 @st.cache_resource
 def load_model(model_drive_url):
-    # Temporary file path to store the .pth file
     pth_file_path = "model_state_dict.pth"
     
-    # Download the .pth file from Google Drive
     st.info("Downloading the model from Google Drive...")
     gdown.download(model_drive_url, pth_file_path, quiet=False)
     
@@ -35,17 +33,14 @@ def load_model(model_drive_url):
     model.load_state_dict(torch.load(pth_file_path, map_location=torch.device('cpu')))
     model.eval()
 
-    # Remove the downloaded .pth file after loading
     os.remove(pth_file_path)
 
     return model
 
-# Link to your model on Google Drive
-model_drive_url = 'https://drive.google.com/uc?export=download&id=10XZm5EYvSuGCh2-ryBTKV-XseEghGH_a'  # Replace with your Google Drive file ID
+model_drive_url = 'https://drive.google.com/uc?export=download&id=10XZm5EYvSuGCh2-ryBTKV-XseEghGH_a'  # Replace with your google file ID
 
 model = load_model(model_drive_url)
 
-# Define the image transformation pipeline
 transform_image = T.Compose([
     T.Resize((518, 518)),  # Resize image to match model input
     T.ToTensor(),
@@ -72,11 +67,9 @@ elif upload_option == "Use webcam":
     if webcam_image is not None:
         image = Image.open(webcam_image)
 
-# If an image is provided, process it
 if image is not None:
     st.image(image, caption="Uploaded Image", use_container_width=True)
 
-    # Preprocess the image to fit model input requirements
     img_tensor = transform_image(image).unsqueeze(0)  # Add batch dimension
 
     # Make a prediction
