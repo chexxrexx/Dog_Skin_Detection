@@ -66,7 +66,7 @@ It is advised that you view this code on google colab, otherwise a lot of librar
 2. Open it using google colab
 3. Run the code, it should save the model in a .pth file
 4. Save the .pth file in your google drive
-5. Replace the google drive url path in the other .ipynb and run the .ipynb file
+5. Replace the google drive url path in the other web4.py and run the Model_Make.ipynb file
 6. Open the streamlit website that's formed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
