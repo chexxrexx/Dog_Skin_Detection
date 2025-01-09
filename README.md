@@ -39,6 +39,8 @@ Utilising META AI's DINOv2 and Pytorch, the AI has been trained over 1000 images
 
 DISCLAIMER: As with all AI, it is not 100% accurate and therefore should not be used as a replacement for a professional veterinarian's diagnosis.
 
+This project also won third place at the University of Edinburgh's AI Expo.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
